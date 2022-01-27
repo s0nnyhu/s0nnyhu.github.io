@@ -119,8 +119,10 @@ canvas {
   left: 0;
 }
 .theme-night {
-  height: 100vh;
-  width: 100wh;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  margin: 0;
   background: -o-linear-gradient(to top, #000, #041c2b);
   background: -ms-linear-gradient(to top, #000, #041c2b);
   background: -moz-linear-gradient(to top, #000, #041c2b);
