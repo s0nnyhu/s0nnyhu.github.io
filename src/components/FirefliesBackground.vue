@@ -108,21 +108,20 @@ export default {
 </script>
 
 <style css>
-canvas {
-  margin: 0;
-  padding: 0;
-}
 #fireflies {
   z-index: 10;
   position: absolute;
   top: 0;
   left: 0;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
 }
 .theme-night {
   position: absolute;
-  height: 100%;
-  width: 100%;
-  margin: 0;
+  height: 100vh;
+  width: 100vw;
   background: -o-linear-gradient(to top, #000, #041c2b);
   background: -ms-linear-gradient(to top, #000, #041c2b);
   background: -moz-linear-gradient(to top, #000, #041c2b);
