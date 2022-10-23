@@ -7,5 +7,5 @@ module.exports = {
                 return args
             })
     },
-    publicPath: '/s0nnyhu.github.io/'
+    publicPath: '/'
 }
