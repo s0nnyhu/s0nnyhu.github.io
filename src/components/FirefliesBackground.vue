@@ -1,6 +1,10 @@
 <template>
   <div class="theme-night">
     <canvas id="fireflies"></canvas>
+    <!-- <div class="glitch__item"></div>
+    <div class="glitch__item"></div>
+    <div class="glitch__item"></div>
+    <div class="glitch__item"></div> -->
   </div>
 </template>
 

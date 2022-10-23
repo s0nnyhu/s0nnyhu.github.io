@@ -32,7 +32,14 @@ a {
 }
 
 svg:hover {
-  animation: svg-shadow 1.5s ease-in-out infinite alternate;
+  animation: svg-shadow 1.5s ease-in-out infinite alternate,
+    paths 5s step-end infinite;
+}
+
+svg {
+  color: #fff;
+  filter: drop-shadow(0 0px 1.8px);
+  animation: paths 4s step-end infinite, movement 8s step-end infinite;
 }
 
 @keyframes svg-shadow {
