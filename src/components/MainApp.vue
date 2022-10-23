@@ -64,7 +64,6 @@ export default {
 .layers::after {
   content: attr(data-text);
   position: absolute;
-  width: 110%;
   z-index: -1;
 }
 
