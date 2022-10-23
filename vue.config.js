@@ -6,5 +6,6 @@ module.exports = {
                 args[0].title = 'Sonny Hu | Github'
                 return args
             })
-    }
+    },
+    publicPath: '/s0nnyhu.github.io/'
 }
