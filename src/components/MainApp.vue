@@ -2,11 +2,11 @@
   <div class="main">
     <fireflies-background />
     <div id="content">
-      <div id="introduction">
-        <!-- <h1 class="hero glitch layers" data-text="Hi there, I'm Sonny Hu">
+      <!-- <div id="introduction">
+        <h1 class="hero glitch layers" data-text="Hi there, I'm Sonny Hu">
           <span>Hi there, I'm Sonny Hu</span>
-        </h1> -->
-      </div>
+        </h1>
+      </div> -->
       <div id="social">
         <social-bar></social-bar>
       </div>
