@@ -3,9 +3,9 @@
     <fireflies-background />
     <div id="content">
       <div id="introduction">
-        <h1 class="hero glitch layers" data-text="Hi there, I'm Sonny Hu">
+        <!-- <h1 class="hero glitch layers" data-text="Hi there, I'm Sonny Hu">
           <span>Hi there, I'm Sonny Hu</span>
-        </h1>
+        </h1> -->
       </div>
       <div id="social">
         <social-bar></social-bar>
