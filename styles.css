@@ -1,0 +1,464 @@
+:root {
+    --neon-cyan: #000000;
+    /* Black accents */
+    --neon-pink: #333333;
+    /* Dark Grey accents */
+    --neon-purple: #666666;
+    --dark-bg: #ffffff;
+    /* White Background */
+    --text-main: #000000;
+    /* Black Text */
+    --scanline-color: rgba(0, 0, 0, 0.05);
+    --glow-spread: 0 0 10px rgba(0, 0, 0, 0.1);
+    --accent-glow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-main);
+    font-family: 'Share Tech Mono', monospace;
+    overflow: hidden;
+    /* No scrolling needed */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Background Effects */
+.scanline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0) 50%,
+            rgba(0, 0, 0, 0.2) 50%,
+            rgba(0, 0, 0, 0.2));
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 10;
+    animation: scanlineMove 10s linear infinite;
+}
+
+#fireflies-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 2, 10, 0) 60%, rgba(0, 17, 255, 0.05) 100%);
+    pointer-events: none;
+    z-index: 5;
+}
+
+@keyframes scanlineMove {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 100%;
+    }
+}
+
+/* Center Content */
+.center-container {
+    text-align: center;
+    z-index: 20;
+    position: relative;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 6rem;
+    font-weight: 900;
+    color: #000000;
+    /* Black */
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+    letter-spacing: 10px;
+    margin-bottom: 2rem;
+}
+
+/* Glitch Effect */
+.glitch {
+    position: relative;
+    animation: glitch-skew 4s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-skew {
+    0% {
+        transform: skew(0deg) translate(0, 0);
+    }
+
+    2% {
+        transform: skew(0deg) translate(-2px, 1px);
+    }
+
+    4% {
+        transform: skew(0deg) translate(2px, -1px);
+    }
+
+    6% {
+        transform: skew(0deg) translate(0, 0);
+    }
+
+    8% {
+        transform: skew(0deg) translate(1px, 2px);
+    }
+
+    10% {
+        transform: skew(0deg) translate(0, 0);
+    }
+
+    40% {
+        transform: skew(0deg) translate(0, 0);
+    }
+
+    42% {
+        transform: skew(10deg) translate(-5px, -2px);
+    }
+
+    44% {
+        transform: skew(-10deg) translate(5px, 2px);
+    }
+
+    46% {
+        transform: skew(0deg) translate(0, 0);
+    }
+
+    100% {
+        transform: skew(0deg) translate(0, 0);
+    }
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 #ff00c1;
+    /* Cyberpunk Pink */
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 4s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 #00fff9;
+    /* Cyberpunk Cyan */
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim2 4s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% {
+        clip: rect(30px, 9999px, 10px, 0);
+        transform: skew(0.85deg);
+    }
+
+    5% {
+        clip: rect(80px, 9999px, 90px, 0);
+        transform: skew(-0.85deg);
+    }
+
+    10% {
+        clip: rect(10px, 9999px, 40px, 0);
+        transform: skew(0.4deg);
+    }
+
+    15% {
+        clip: rect(50px, 9999px, 20px, 0);
+        transform: skew(-0.4deg);
+    }
+
+    20% {
+        clip: rect(20px, 9999px, 60px, 0);
+        transform: skew(0.2deg);
+    }
+
+    25% {
+        clip: rect(90px, 9999px, 30px, 0);
+        transform: skew(-0.2deg);
+    }
+
+    30% {
+        clip: rect(10px, 9999px, 80px, 0);
+        transform: skew(0.6deg);
+    }
+
+    35% {
+        clip: rect(60px, 9999px, 10px, 0);
+        transform: skew(-0.6deg);
+    }
+
+    40% {
+        clip: rect(40px, 9999px, 50px, 0);
+        transform: skew(0.3deg);
+    }
+
+    45% {
+        clip: rect(70px, 9999px, 20px, 0);
+        transform: skew(-0.3deg);
+    }
+
+    50% {
+        clip: rect(20px, 9999px, 90px, 0);
+        transform: skew(0.5deg);
+    }
+
+    55% {
+        clip: rect(50px, 9999px, 10px, 0);
+        transform: skew(-0.5deg);
+    }
+
+    60% {
+        clip: rect(10px, 9999px, 40px, 0);
+        transform: skew(0.7deg);
+    }
+
+    65% {
+        clip: rect(80px, 9999px, 20px, 0);
+        transform: skew(-0.7deg);
+    }
+
+    70% {
+        clip: rect(30px, 9999px, 70px, 0);
+        transform: skew(0.4deg);
+    }
+
+    75% {
+        clip: rect(60px, 9999px, 10px, 0);
+        transform: skew(-0.4deg);
+    }
+
+    80% {
+        clip: rect(10px, 9999px, 50px, 0);
+        transform: skew(0.2deg);
+    }
+
+    85% {
+        clip: rect(90px, 9999px, 30px, 0);
+        transform: skew(-0.2deg);
+    }
+
+    90% {
+        clip: rect(40px, 9999px, 80px, 0);
+        transform: skew(0.6deg);
+    }
+
+    95% {
+        clip: rect(70px, 9999px, 10px, 0);
+        transform: skew(-0.6deg);
+    }
+
+    100% {
+        clip: rect(20px, 9999px, 60px, 0);
+        transform: skew(0.3deg);
+    }
+}
+
+@keyframes glitch-anim2 {
+    0% {
+        clip: rect(10px, 9999px, 80px, 0);
+        transform: skew(0.4deg);
+    }
+
+    5% {
+        clip: rect(90px, 9999px, 10px, 0);
+        transform: skew(-0.4deg);
+    }
+
+    10% {
+        clip: rect(30px, 9999px, 60px, 0);
+        transform: skew(0.8deg);
+    }
+
+    15% {
+        clip: rect(70px, 9999px, 20px, 0);
+        transform: skew(-0.8deg);
+    }
+
+    20% {
+        clip: rect(20px, 9999px, 50px, 0);
+        transform: skew(0.2deg);
+    }
+
+    25% {
+        clip: rect(60px, 9999px, 90px, 0);
+        transform: skew(-0.2deg);
+    }
+
+    30% {
+        clip: rect(10px, 9999px, 40px, 0);
+        transform: skew(0.6deg);
+    }
+
+    35% {
+        clip: rect(50px, 9999px, 80px, 0);
+        transform: skew(-0.6deg);
+    }
+
+    40% {
+        clip: rect(80px, 9999px, 30px, 0);
+        transform: skew(0.3deg);
+    }
+
+    45% {
+        clip: rect(20px, 9999px, 70px, 0);
+        transform: skew(-0.3deg);
+    }
+
+    50% {
+        clip: rect(60px, 9999px, 10px, 0);
+        transform: skew(0.5deg);
+    }
+
+    55% {
+        clip: rect(10px, 9999px, 50px, 0);
+        transform: skew(-0.5deg);
+    }
+
+    60% {
+        clip: rect(40px, 9999px, 90px, 0);
+        transform: skew(0.7deg);
+    }
+
+    65% {
+        clip: rect(90px, 9999px, 20px, 0);
+        transform: skew(-0.7deg);
+    }
+
+    70% {
+        clip: rect(30px, 9999px, 60px, 0);
+        transform: skew(0.4deg);
+    }
+
+    75% {
+        clip: rect(70px, 9999px, 10px, 0);
+        transform: skew(-0.4deg);
+    }
+
+    80% {
+        clip: rect(20px, 9999px, 50px, 0);
+        transform: skew(0.2deg);
+    }
+
+    85% {
+        clip: rect(60px, 9999px, 80px, 0);
+        transform: skew(-0.2deg);
+    }
+
+    90% {
+        clip: rect(10px, 9999px, 40px, 0);
+        transform: skew(0.6deg);
+    }
+
+    95% {
+        clip: rect(50px, 9999px, 90px, 0);
+        transform: skew(-0.6deg);
+    }
+
+    100% {
+        clip: rect(90px, 9999px, 10px, 0);
+        transform: skew(0.3deg);
+    }
+}
+
+/* Social Icons */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.social-icon {
+    color: var(--text-main);
+    font-size: 3rem;
+    transition: 0.3s;
+    text-shadow: 0 0 5px var(--neon-cyan);
+}
+
+.social-icon:hover {
+    color: var(--text-main);
+    transform: scale(1.2);
+    /* Using drop-shadow which often renders better for icons/svgs than text-shadow */
+    filter: drop-shadow(0 0 10px var(--neon-pink)) drop-shadow(0 0 20px var(--neon-pink));
+    /* Ensure text-shadow is also applied for good measure */
+    text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink);
+}
+
+/* Icon Glitch */
+.glitch-icon {
+    animation: icon-glitch 4s infinite;
+}
+
+@keyframes icon-glitch {
+    0% {
+        transform: translate(0);
+        text-shadow: 0 0 5px var(--neon-cyan);
+    }
+
+    2% {
+        transform: translate(-2px, 2px);
+        text-shadow: 2px 0 var(--neon-pink), -2px 0 var(--neon-cyan);
+    }
+
+    4% {
+        transform: translate(2px, -2px);
+        text-shadow: -2px 0 var(--neon-pink), 2px 0 var(--neon-cyan);
+    }
+
+    6% {
+        transform: translate(0);
+        text-shadow: 0 0 5px var(--neon-cyan);
+    }
+
+    50% {
+        transform: translate(0);
+        text-shadow: 0 0 5px var(--neon-cyan);
+    }
+
+    52% {
+        transform: translate(1px, -1px);
+        text-shadow: 1px 0 var(--neon-pink), -1px 0 var(--neon-cyan);
+    }
+
+    54% {
+        transform: translate(0);
+        text-shadow: 0 0 5px var(--neon-cyan);
+    }
+
+    100% {
+        transform: translate(0);
+        text-shadow: 0 0 5px var(--neon-cyan);
+    }
+}
+
+/* Responsive */
